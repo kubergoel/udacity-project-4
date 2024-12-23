@@ -1,0 +1,11 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: fake-ca-file
+    server: https://7C0C739CE282E44638066B74C876E36D.gr7.us-east-2.eks.amazonaws.com
+  name: simple-jwt-api
+contexts: null
+current-context: ""
+kind: Config
+preferences: {}
+users: null
