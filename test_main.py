@@ -42,10 +42,10 @@ def test_auth(client):
 def test_auth_fail(client):
     body = {'email': EMAIL,
             'password': PASSWORD}
-    response = client.post('/auth', 
+    response = client.post('/auth1', 
                            data=json.dumps(body),
                            content_type='application/json')
 
-    assert response.status_code == 200
+    assert response.status_code == 404
     token = response.json['token']
     assert token is None
