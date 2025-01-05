@@ -7,14 +7,14 @@ phases:
     runtime-versions:
       python: 3.9
     commands:
-      - echo "Installing additional runtimes..."
-      - curl -fsSL https://apt.corretto.aws/corretto.key | sudo apt-key add -
-      - sudo apt-get update
-      - sudo apt-get install -y java-11-amazon-corretto-jdk  # Install Java manually
       - echo "Adding Google Chrome GPG key..."
       - curl -fsSL https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
       - echo "Updating package list..."
       - sudo apt-get update
+      - echo "Installing additional runtimes..."
+      - curl -fsSL https://apt.corretto.aws/corretto.key | sudo apt-key add -
+      - sudo apt-get update
+      - sudo apt-get install -y java-11-amazon-corretto-jdk  # Install Java manually
       - echo 'about to call dockerd'
       - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://127.0.0.1:2375 --storage-driver=overlay2&
       - timeout 15 sh -c "until docker info; do echo .; sleep 1; done"
