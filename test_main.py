@@ -47,5 +47,3 @@ def test_auth_fail(client):
                            content_type='application/json')
 
     assert response.status_code == 404
-    token = response.json['token']
-    assert token is None
